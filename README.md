@@ -8,8 +8,8 @@
 In this project, I used the following EC6 features:
 
 Arrow Function from line 9 of List.tsx: <pre><code>const linkPress = (course: string) => {
-      store.dispatch(actions.addCourse(course));
-      console.log(store.getState())
+        store.dispatch(actions.addCourse(course));
+        console.log(store.getState())
   }</code></pre>
 
 Destructuring from line 23 of App.tsx: <pre><code>const [courses, setCourses] = useState([])</code></pre>
