@@ -46,12 +46,14 @@ I have also added a state tracker on the page, you will see that the state match
       console.log(store.getState())
   }</code></pre>
   
-What this does is take in the course from the link, put it into state, and log the new state. This new state is what is being read in Item.tsx on lines 30-32. When we want to return to our list, I have included a back button from [material-icons](https://mui.com/components/material-icons/). The logic placed in this back button is what is called that allows our state to be updated and the current course removed.
+What this does is take in the course from the link, put it into state, and log the new state. This new state is what is being read in Item.tsx on lines 30-32. When we want to return to our list, I have included a back button from [material-icons](https://mui.com/components/material-icons/). The logic placed in this back button is what is called that allows our state to be updated and the current course removed:
 
 <pre><code>const onBack = () => {
         store.dispatch(actions.removeCourse(courses.filter(course => course.course === path)[0]))
         console.log(store.getState())
     }</code></pre>
+
+This dispatches an array that is produced from filtering the courses array to match the course that shares name with the current path. We then console log the state, which is now an empty array as expected.
 
 Overall, I am starting to see the big picture with react redux, and look forward to potentially building it into a larger project. More study on Redux will be needed.
 
