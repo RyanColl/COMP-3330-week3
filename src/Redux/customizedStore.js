@@ -6,7 +6,7 @@ function createStore(reducer) {
 
   function subscribe(subscriber) {
     subscribers.push(subscriber);
-    return (() => console.log('something has been subscribed'))
+    return (state)
   }
 
   function dispatch(action) {

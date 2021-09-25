@@ -34,6 +34,20 @@
   height: 250px;
   border-radius: 50%;
   overflow: hidden;
+  transition: all 0.5s;
+}
+.courses a {
+  text-decoration: none;
+  color: white;
+}
+.about img {
+  margin-left: -150px;
+  margin-top: -160px;
+  
+}
+.about:hover {
+  transition: all 0.5s;
+  transform: scale(1.15);
 }
 .App-link {
   color: #61dafb;
@@ -72,4 +86,10 @@
 
 .home {
   
+}
+.back-button {
+  margin-top: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 25px;
 }

@@ -26,3 +26,21 @@ export function resolveBug(id) {
         },
     };
 }
+
+export function addCourse(course) {
+  return {
+    type: actions.ADD_COURSE,
+    payload: {
+      course,
+    }
+  }
+}
+
+export function removeCourse(course) {
+  return {
+    type: actions.REMOVE_COURSE,
+    payload: {
+      course,
+    }
+  }
+}

@@ -23,6 +23,18 @@ export default function reducer(state = [], action) {
             ...arr1,
             {...arr2[0], resolved: true}
           ]
+    case actions.ADD_COURSE:
+          return [
+            ...state,
+            {
+              id: nextId++,
+              course: action.payload.course
+            },
+          ]
+    case actions.REMOVE_COURSE:
+          return [
+            ...state.filter(course => course.course === action.payload.course)
+          ]
     default:
       return state;
   }
