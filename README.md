@@ -7,10 +7,10 @@
 
 In this project, I used the following EC6 features:
 
-Arrow Function from line 2 of About.tsx: ```const About = () => {
+Arrow Function from line 2 of About.tsx: <>const About = () => {
     return(
         <>
-        
+
             <h1>Ryan Collicutt</h1>
             <div className='about'>   
                 <img src='img/me.jpeg' alt='ryan collicutt'></img>
@@ -18,7 +18,7 @@ Arrow Function from line 2 of About.tsx: ```const About = () => {
             <span style={{marginTop: 20}}>Full Stack Web Dev Student at BCIT</span>
         </>
     )
-}```
+}</>
 
 Destructuring from line 23 of App.tsx: <pre><code>const [courses, setCourses] = useState([])</code></pre>
 
