@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Getting Started With My Project!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Week 3
 
-## Available Scripts
 
-In the project directory, you can run:
+### ES6 Usage Examples
 
-### `npm start`
+In this project, I used the following EC6 features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Arrow Function from line 2 of About.tsx: <pre><code>const About = () => {
+    return(
+        <>
+            <h1>Ryan Collicutt</h1>
+            <div className='about'>   
+                <img src='img/me.jpeg' alt='ryan collicutt'></img>
+            </div>
+            <span style={{marginTop: 20}}>Full Stack Web Dev Student at BCIT</span>
+        </>
+    )
+}</code></pre>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Destructuring from line 23 of App.tsx: <pre><code>const [courses, setCourses] = useState([])</code></pre>
 
-### `npm test`
+Default from line 5 of reducer.js: <pre><code>export default function reducer(state = [], action) {}</code></pre>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Let from line 10 of Item.tsx: <pre><code>let path = useLocation().pathname.substr(6);</code></pre>
 
-### `npm run build`
+This is the extent of my EC6 feature usage in this project.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Typescript
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Typescript is involved in the project, but do not worry, simply using ```npm install``` when you enter the project solves any sort of dependency problems. To install typescript in a react-app of your own, visit this [link.](https://create-react-app.dev/docs/adding-typescript/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Ternary
 
-### `npm run eject`
+[Ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) is used to check a condition that returns a boolean, and then executes code based on whether it is true or false. Ternary can look at a boolean directly, or it can look at a comparison, as it always resorts to a boolean. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### State
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+State is used to update a component. Updating a component re-renders it, but with the re-rendered value. </br>
+For example, in the following code, we will destructure our state variable and our component-updating function (as described in the [docs](https://reactjs.org/docs/hooks-state.html)) and give it an initial value of a an empty array. In our actual code, we fill this array with a 7-piece data-set, so we will not include it here. Can be found on line 23 of App.tsx.
+</br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<code>const [courses, setCourses] = useState([])</code>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### How It Works
 
-## Learn More
+My app is simple and introduces the use of redux, but not in a way that is meaningful yet. Redux is a new topic, and I have implemented into some buttons the logic required to dispatch into state the name of the current course selected. I have provided a back button that returns to the list, and filters through the state and pulls the course out of state. I see that when state is changed in Redux, we may have to re-render a component to see it. I will leave that for another time. The react router dom handles requests from the url paramaters. I made a courses array in state, sent it as props down to both list and item. I used list to handle the ``` /list ``` url, and item to handle any paramater after the list url, like ``` /list/COMP-3330 ```. I use the paramater in item to filter through the courses array and grab the correct course. I then map the course into an ``` h1 ``` tag and a ``` span ``` tag.
+I have also added a state tracker on the page, you will see that the state matches the name of the course displayed. This is because I have included some logic inside of the onClick for the list: 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<pre><code>const linkPress = (course: string) => {
+      store.dispatch(actions.addCourse(course));
+      console.log(store.getState())
+  }</code></pre>
+  
+What this does is take in the course from the link, put it into state, and log the new state. This new state is what is being read in Item.tsx on lines 30-32. When we want to return to our list, I have included a back button from [material-icons](https://mui.com/components/material-icons/). The logic placed in this back button is what is called that allows our state to be updated and the current course removed.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<pre><code>const onBack = () => {
+        store.dispatch(actions.removeCourse(courses.filter(course => course.course === path)[0]))
+        console.log(store.getState())
+    }</code></pre>
 
-### Code Splitting
+Overall, I am starting to see the big picture with react redux, and look forward to potentially building it into a larger project. More study on Redux will be needed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please feel free to check out my website too, which is currently just a work in progress. [RyanColl](https://www.rcoll-dev.com)

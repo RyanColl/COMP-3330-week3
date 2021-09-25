@@ -27,7 +27,7 @@ export default function reducer(state = [], action) {
           return [
             ...state,
             {
-              id: nextId++,
+              id: state.length + 1,
               course: action.payload.course
             },
           ]
