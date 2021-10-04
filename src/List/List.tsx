@@ -16,7 +16,7 @@ const List = (props: any) => {
   return (     
         <div className="list">
           <div className="courses">
-            {courses.map((course, i) => {
+            {courses.map((course: Course, i: number) => {
               return (
                 <div key={i}>
                   <Link 

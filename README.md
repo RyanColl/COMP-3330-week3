@@ -38,7 +38,10 @@ For example, in the following code, we will destructure our state variable and o
 ### How It Works
 
 My app is simple and introduces the use of redux, but not in a way that is meaningful yet. Redux is a new topic, and I have implemented into some buttons the logic required to dispatch into state the name of the current course selected. I have provided a back button that returns to the list, and filters through the state and pulls the course out of state. I see that when state is changed in Redux, we may have to re-render a component to see it. I will leave that for another time. The react router dom handles requests from the url parameters. I made a courses array in state, sent it as props down to both list and item. I used <List /> to handle the ``` /list ``` url, and <Item /> to handle any parameter after the list url, like ``` /list/COMP-3330 ```. I use the parameter in item to filter through the courses array and grab the correct course. I then map the course into an ``` h1 ``` tag and a ``` span ``` tag.
-I have also added a state tracker on the page, you will see that the state matches the name of the course displayed. This is because I have included some logic inside of the onClick for the list: 
+
+### Redux
+
+I have also added a state tracker on the page using Redux. You will see that the state matches the name of the course displayed. This is because I have included some logic inside of the onClick for the list: 
 
 <pre><code>const linkPress = (course: string) => {
       store.dispatch(actions.addCourse(course));
